@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -17,10 +18,56 @@
     nav a { color: #2e4a62; text-decoration: none; margin: 0 1rem; font-weight: bold; font-size: 1.1rem; transition: color 0.3s; }
     nav a:hover { color: #556b2f; }
     footer { background: #556b2f; color: #f0e68c; text-align: center; padding: 1rem; margin-top: 3rem; font-size: 0.9rem; }
+    .galeria-interativa {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .galeria-interativa img {
+      width: 100%;
+      max-width: 300px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .galeria-interativa img:hover {
+      transform: scale(1.05);
+    }
+    .galeria-interativa figure {
+      margin: 0;
+      text-align: center;
+      width: 30%;
+      max-width: 300px;
+    }
+    .galeria-interativa figcaption {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #555;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    .lightbox:target {
+      display: flex;
+    }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Biodata em Sintonia : Trombone e Flora</h1>
     <p>Descobre a harmonia da Natureza</p>
@@ -35,7 +82,7 @@
   </nav>
 
   <section id="sobre">
-    <img src="imagens/equipa0.jpg" alt="Imagem representativa do projeto" style="width: 100%; max-height: 400px; object-fit: cover; margin-bottom: 2rem;" />
+    <img src="imagens/banner.jpg" alt="Imagem representativa do projeto" style="width: 100%; max-height: 400px; object-fit: cover; margin-bottom: 2rem;" />
     <h2>Sobre</h2>
     <p>O projeto "Biodata em Sintonia: Trombone e o Canto da Flora" é uma exploração artística e sensorial que une música, natureza e tecnologia. Através de dispositivos que convertem sinais biológicos de plantas em sinais MIDI, a flora de Tavira ganha voz numa paisagem sonora única.</p>
     <p>Com performances ao vivo, pedais de efeito e investigação em media arte digital, o projeto proporciona experiências multissensoriais imersivas. Conta com o apoio do Museo Zer0, com sede em Tavira, e está inserido na Rede Portuguesa de Arte Contemporânea.</p>
@@ -44,16 +91,28 @@
 
   <section id="documentacao">
     <h2>Documentação do Projeto</h2>
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-  <img src="imagens/equipa1.jpg" alt="Trabalho de campo 1" style="width: 30%; max-width: 300px; object-fit: cover;" />
-  <img src="imagens/equipa2.jpg" alt="Trabalho de campo 2" style="width: 30%; max-width: 300px; object-fit: cover;" />
-  <img src="imagens/equipa3.jpg" alt="Trabalho de campo 3" style="width: 30%; max-width: 300px; object-fit: cover;" />
-</div>
-<p style="margin-top: 1rem;">Trabalho de campo com José Filipe (especialista botânico) e Luís Santos (registo fotográfico e vídeo), captando a biodiversidade da flora de Tavira.</p>
+    <div class="galeria-interativa">
+      <figure>
+        <a href="#img1"><img src="imagens/equipa1.jpg" alt="Trabalho de campo 1" /></a>
+        <figcaption>Observação da flora local</figcaption>
+      </figure>
+      <figure>
+        <a href="#img2"><img src="imagens/equipa2.jpg" alt="Trabalho de campo 2" /></a>
+        <figcaption>Registo com sensores biodata</figcaption>
+      </figure>
+      <figure>
+        <a href="#img3"><img src="imagens/equipa3.jpg" alt="Trabalho de campo 3" /></a>
+        <figcaption>Colaboração em campo com José Filipe e Luís Santos</figcaption>
+      </figure>
+    </div>
 
+    <div id="img1" class="lightbox"><a href="#documentacao"><img src="imagens/equipa1.jpg" alt="Trabalho de campo 1" /></a></div>
+    <div id="img2" class="lightbox"><a href="#documentacao"><img src="imagens/equipa2.jpg" alt="Trabalho de campo 2" /></a></div>
+    <div id="img3" class="lightbox"><a href="#documentacao"><img src="imagens/equipa3.jpg" alt="Trabalho de campo 3" /></a></div>
+
+    <p style="margin-top: 1rem;">Trabalho de campo com José Filipe (especialista botânico) e Luís Santos (registo fotográfico e vídeo), captando a biodiversidade da flora de Tavira.</p>
     <img src="imagens/registro.jpg" alt="Registo visual e sonoro" style="width:100%; max-height:400px; object-fit:cover; margin-bottom:1rem;" />
     <p>Registos áudio-visuais de alta qualidade que capturam a essência da interação entre plantas e arte sonora.</p>
-
     <img src="imagens/performance.jpg" alt="Performance com trombone e sonificação" style="width:100%; max-height:400px; object-fit:cover; margin-bottom:1rem;" />
     <p>Performances ao vivo com trombone, pedais de efeito e sinais biodata das plantas, proporcionando uma experiência única ao público.</p>
   </section>
@@ -96,6 +155,5 @@
   <footer>
     &copy; 2025 Biodata em Sintonia - Todos os direitos reservados.
   </footer>
-
 </body>
 </html>
